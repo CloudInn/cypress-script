@@ -2,12 +2,12 @@
   "name": "cypress-script",
   "version": "1.0.0",
   "description": "create cypress templates [ page objects, models, .feature files and test specs ] ",
-  "main": "lib/index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "build": "tsc"
