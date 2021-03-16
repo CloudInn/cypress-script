@@ -6,6 +6,7 @@ npm install
 ```
 ## How to run test cases
 ```
+npm link
 npm link cyscript
 npm test
 ```
