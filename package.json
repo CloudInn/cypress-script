@@ -14,7 +14,7 @@
     "build": "tsc"
   },
   "bin": {
-    "cyscript": "bin/cli.js"
+    "cyscript": "bin/cli.ts"
   },
   "author": "cloudinn",
   "license": "ISC",
