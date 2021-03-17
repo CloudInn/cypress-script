@@ -16,7 +16,10 @@ export class HandleCLI{
         this.performAction()
     }
     performAction(){
-        
+        this.detectAction()
+        //TODO:
+        // why an error
+        this.createObj.perform()
     }
 
     detectAction(){
