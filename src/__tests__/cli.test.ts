@@ -1,6 +1,6 @@
 import {exec} from "child_process";
 import * as fs from "fs";
-
+import {CypressNotFoundError} from "../custom_exceptions"
 const logger = require("../../lib/logger")
 
 describe("cyscript cli create page object", () =>{
@@ -26,9 +26,10 @@ describe("cyscript cli create page object", () =>{
     var pageName : string  = "samplepg.page.ts";
     var moduleName : string = "sample_module"
     var cypressIntegrationFolderPath : string = "cypress/integration";
-    var pageFullPath = `${cypressIntegrationFolderPath}/${moduleName}/${pageName}`
+    var pageFullPath = `${cypressIntegrationFolderPath}/${moduleName}/${pageName}`;
+    var CypressNotFoundErrorExceptionName = (<any>new CypressNotFoundError("")).constructor.name
     exec(`npx cyscript create --pg ${pageName} --module ${moduleName}`,(error, stdout, stderr)=>{
-      expect(stderr).toContain("throw new custom_exceptions_1.CypressNotFoundError")
+      expect(stderr).toContain(CypressNotFoundErrorExceptionName)
       done();
     })
   });
