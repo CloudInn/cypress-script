@@ -9,7 +9,7 @@ export class Create {
         this._moduleName = moduleName;
     }
 
-    protected perform(){
+    public perform(){
         
     }
     // TODO:
@@ -27,8 +27,8 @@ export class Create {
 
 export enum CATEGORIES
 {
-   page = "pg",
-   spec = "spec",
-   feature = "featuer",
-   module = "module",
+   page = "--pg",
+   spec = "--spec",
+   feature = "--featuer",
+   module = "--module",
 }

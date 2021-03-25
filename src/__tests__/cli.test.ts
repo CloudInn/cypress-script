@@ -1,16 +1,35 @@
 import {exec} from "child_process";
 import * as fs from "fs";
+
 const logger = require("../../lib/logger")
 
 describe("cyscript cli create page object", () =>{
   
   // 1- create page object in integration folder [module-name]/pagename.page.ts
-  test('should create a .page.ts in integration folder if cypress installed',async () => {
+  test('should create a .page.ts in integration folder if cypress installed',done => {
     var pageName : string  = "samplepg.page.ts";
+    var moduleName : string = "sample_module"
     var cypressIntegrationFolderPath : string = "cypress/integration";
-    exec(`npx cyscript create pg ${pageName}`,(err, stdout, stderr)=>{
+    var pageFullPath = `${cypressIntegrationFolderPath}/${moduleName}/${pageName}`
+    // create cypress/integration folders
+    fs.mkdirSync("cypress")
+    fs.mkdirSync(cypressIntegrationFolderPath)
+    exec(`npx cyscript create --pg ${pageName} --module ${moduleName}`,(err, stdout, stderr)=>{
       // logger.log("hey",stdout)
-      expect(fs.existsSync(pageName)).toEqual(true)
+      expect(fs.existsSync(pageFullPath)).toEqual(true)
+      fs.rmdirSync(cypressIntegrationFolderPath, { recursive: true })
+      fs.rmdirSync("cypress")
+      done();
+    })
+  });
+  test('should throw exception if cypress is not installed',done => {
+    var pageName : string  = "samplepg.page.ts";
+    var moduleName : string = "sample_module"
+    var cypressIntegrationFolderPath : string = "cypress/integration";
+    var pageFullPath = `${cypressIntegrationFolderPath}/${moduleName}/${pageName}`
+    exec(`npx cyscript create --pg ${pageName} --module ${moduleName}`,(error, stdout, stderr)=>{
+      expect(stderr).toContain("throw new custom_exceptions_1.CypressNotFoundError")
+      done();
     })
   });
   // 1-1 if cypress doesn't exists report back no cypress installation

@@ -26,9 +26,11 @@ export class HandleCLI{
         switch(this.params[0]){
             case CLI_COMMANDS.ACTIONS.create:
                 if (this.params[1] == CATEGORIES.page){
-                    // TODO:
-                    // where should module name be passed [ parent or child ]
-                    this.createObj = new CPageObject("FIXED_MODULE")
+                    var moduleName = "FIXED_MODULE"
+                    if (this.params.includes('--module')){
+                        moduleName = this.params[4]
+                    }
+                    this.createObj = new CPageObject(moduleName,this.params[2])
                 }
                 break;
             
