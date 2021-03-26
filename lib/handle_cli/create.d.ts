@@ -8,8 +8,8 @@ export declare class Create {
     protected getModulePath(): string;
 }
 export declare enum CATEGORIES {
-    page = "pg",
-    spec = "spec",
-    feature = "featuer",
-    module = "module"
+    page = "--pg",
+    spec = "--spec",
+    feature = "--featuer",
+    module = "--module"
 }

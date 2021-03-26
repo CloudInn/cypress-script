@@ -1,5 +1,6 @@
 import { Create } from "./create";
 export declare class CPageObject extends Create {
-    constructor(moduleName: string);
+    pageName: string;
+    constructor(moduleName: string, pageName: string);
     perform(): boolean;
 }
