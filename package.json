@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest --config jestconfig.json --detectOpenHandles",
     "prepare": "npm run build",
-    "link-cyscript": "npm i && npm link && npm link cyscript",
+    "pret-test": "npm i && npm link && npm link cyscript && npx tsc lib/index.ts",
     "unlink-cyscript": "npm unlink cyscript && rm -rf node_modules",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",

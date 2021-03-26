@@ -6,7 +6,11 @@ npm install
 ```
 ## How to run test cases
 ```
-npm link
-npm link cyscript
+npm run prep-test
 npm test
 ```
+
+
+#### vscode extensions used 
+- File watcher  
+    it transpiles every changed ts file after saving it.
