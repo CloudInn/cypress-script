@@ -1,0 +1,10 @@
+{
+    "filewatcher.commands": [
+        {
+            "match": "\\.ts*",
+            "isAsync": true,
+            "cmd": "npx tsc ${file}",
+            "event": "onFileChange"
+        }        
+    ]
+}
