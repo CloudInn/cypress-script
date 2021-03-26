@@ -37,7 +37,10 @@ jobs:
       
       - name: npm link cyscript
         run: npm link cyscript
-        
+	
+      - name: transpiling
+	run: npx tsc lib/index.ts
+	        
       - name: run tests
         run: npm test
 
